@@ -9,7 +9,8 @@
 namespace DiDemo;
 
 
-use DiDemo\Mailer\SmtpMailer;
+use DiDemo\Mailer\MailerInterface;
+
 
 class FriendHarvester
 {
@@ -17,19 +18,24 @@ class FriendHarvester
      * @var \PDO
      */
     private $pdo;
+    /**
+     * @var array
+     */
+    private $mailer;
 
-    public function __construct(\PDO $pdo)
+    public function __construct(\PDO $pdo, MailerInterface $mailer)
     {
         $this->pdo = $pdo;
+        $this->mailer = $mailer;
     }
 
     public function emailFriends()
     {
-        $mailer = new SmtpMailer('smtp.SendMoneyToStrangers.com', 'smtpuser', 'smtppass', '465');
+
 
         $sql = 'SELECT * FROM people_to_spam';
         foreach ($this->pdo->query($sql) as $row) {
-            $mailer->sendMessage(
+            $this->mailer->sendMessage(
                 $row['email'],
                 'Yay! We want to send you money for no reason!',
                 sprintf(<<<EOF

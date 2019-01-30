@@ -7,5 +7,8 @@ use DiDemo\Mailer\SmtpMailer;
 $dsn = 'sqlite:'.__DIR__.'/data/database.sqlite';
 $pdo = new PDO($dsn);
 
-$friendHarvester = new \DiDemo\FriendHarvester($pdo);
+$mailer = new SmtpMailer('server','user','password','port');
+
+$friendHarvester = new \DiDemo\FriendHarvester( $pdo,$mailer);
+
 $friendHarvester->emailFriends();
