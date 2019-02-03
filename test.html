@@ -1,0 +1,23 @@
+<form class="form-signin" method="post" name="user_registration_form">
+    <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+    <div id="user_registration_form">
+        <div class="form-group">
+            <label class="required" for="user_registration_form_email">Email</label>
+            <input class="form-control" id="user_registration_form_email" name="user_registration_form[email]" required="required" type="email">
+        </div>
+        <div class="form-group">
+            <label class="required" for="user_registration_form_plainPassword">Plain password</label>
+            <input class="form-control" id="user_registration_form_plainPassword" name="user_registration_form[plainPassword]" required="required" type="password">
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" id="user_registration_form_agreeTerms" name="user_registration_form[agreeTerms]" required="required" type="checkbox" value="1">
+                <label class="form-check-label required" for="user_registration_form_agreeTerms">Agree terms</label>
+            </div>
+        </div>
+        <input id="user_registration_form__token" name="user_registration_form[_token]" type="hidden" value="4_LB0SnJkK0EinAcmE9Zg7bJabNufZ4TioSk8Ckov0k">
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+        Register
+    </button>
+</form>
